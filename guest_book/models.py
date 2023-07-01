@@ -11,3 +11,12 @@ class GuestBook(models.Model):
     update_date = models.DateField(auto_now=True, verbose_name='Дата обновления')
     status = models.CharField(null=False, blank=False, default='active',
                               verbose_name='Статус', choices=status_field)
+
+    def __str__(self):
+        return f'{self.guest_name} - {self.guest_email} - {self.text_records} - {self.create_date}' \
+               f' - {self.update_date} - {self.status}'
+
+    class Meta:
+        db_table = 'guestbook'
+        verbose_name = "гостевая книга"
+        verbose_name_plural = "гостевая книга"
