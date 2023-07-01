@@ -4,7 +4,7 @@ from guest_book.models import GuestBook
 
 
 class GuestBookAdmin(admin.ModelAdmin):
-    list_display = ['id', 'guest_name', 'guest_email', 'status']
+    list_display = ['id', 'guest_name', 'guest_email', 'status', 'create_date']
     list_filter = ['guest_name', 'status', 'create_date', 'update_date']
     list_display_links = ['id', 'guest_name', 'guest_email', 'status']
     search_fields = ['guest_name', 'guest_email']

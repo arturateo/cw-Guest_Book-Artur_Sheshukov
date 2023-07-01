@@ -1,5 +1,28 @@
 {% extends 'base.html' %}
 {% block title %}Главная{% endblock %}
 {% block content %}
-    <h1>Hiii</h1>
+    <form action="" method="GET">
+            {% include "partial/search_form.html" %}
+            <button type="submit" class="btn btn-primary mx-2 d-inline">Поиск</button>
+        </div>
+
+        <div class="row">
+            {% for record in records %}
+                <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 mb-3 mt-2">
+                        <div class="card-body">
+                            <div class="d-card-title row">
+                                <h5 class="card-title col-10">{{ record.guest_name }} ({{ record.guest_email }})</h5>
+                                <div class="card-link col-2 d-flex justify-content-between">
+                                    <a href="#"><i class="fa-solid fa-pencil"></i></a>
+                                    <a href="#"><i class="fa-sharp fa-solid fa-xmark"></i></a>
+                                </div>
+                            </div>
+                            <p class="card-text">{{ record.text_records }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </form>
 {% endblock %}
