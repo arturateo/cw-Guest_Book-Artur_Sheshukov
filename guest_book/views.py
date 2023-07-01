@@ -43,4 +43,11 @@ def edit_record(request, pk):
 
 
 def delete_record(request, pk):
-    pass
+    record = get_object_or_404(GuestBook, pk=pk)
+    if request.method == 'GET':
+        return render(request, 'delete_confirm.html', {'record': record})
+    else:
+        button = request.POST.get('delete')
+        if button:
+            record.delete()
+        return redirect('home')
