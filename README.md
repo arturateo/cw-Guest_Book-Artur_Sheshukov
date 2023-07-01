@@ -5,7 +5,7 @@
 * Этап №1
   * Создайте папку для проекта 
   * Клонируйте проект в папку с помощью командной строки
-    *       git@github.com:arturateo/cw-Guest_Book-Artur_Sheshukov.git
+    *     git clone git@github.com:arturateo/cw-Guest_Book-Artur_Sheshukov.git
 * Этап №2
     * Установите виртуальное окружение 
       *     python -m venv venv 
