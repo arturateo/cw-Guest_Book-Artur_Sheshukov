@@ -26,3 +26,21 @@ def add_record(request):
         else:
             return render(request, 'home.html', {'form_record': form_record, 'form_search': form_search,
                                                  'records': records})
+
+
+def edit_record(request, pk):
+    record = get_object_or_404(GuestBook, pk=pk)
+    if request.method == "GET":
+        form_record = GuestBookForm(instance=record)
+        return render(request, 'edit_record.html', {'form_record': form_record, 'record': record})
+    if request.method == "POST":
+        form_record = GuestBookForm(instance=record, data=request.POST)
+        if form_record.is_valid():
+            form_record.save()
+            return redirect('home')
+        else:
+            return render(request, 'edit_record.html', {'form_record': form_record, 'record': record})
+
+
+def delete_record(request, pk):
+    pass
